@@ -1,4 +1,12 @@
 /** TODO: Build the navigation bar using JavaScript **/
+const sections = document.querySelectorAll("section");
+const navbar = document.querySelector("#navbar__list");
+
+sections.forEach((section) => {
+    let navLink = document.createElement("li");
+    navLink.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
+    navbar.appendChild(navLink)
+});
 
 /** TODO: Add smooth scrolling **/
 
