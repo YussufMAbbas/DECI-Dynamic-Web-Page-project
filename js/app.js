@@ -37,8 +37,6 @@ document.addEventListener("scroll", () => {
     });
 });
 
-/** TODO: Add a comment form **/
-
 commentFormSubmit.addEventListener("click", (event) => {
     // Validation and Appending of comments to the comment section
 
