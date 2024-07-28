@@ -4,6 +4,7 @@ const commentFormUsername = document.querySelector("#name");
 const commentFormEmail = document.querySelector("#email");
 const commentFormSubmit = document.querySelector("#submit");
 const commentFormComment = document.querySelector("#comment")
+const comments = document.querySelector(".comments")
 
 sections.forEach((section) => {
     // Loops over all the sections and adds them to the navbar in a "table of contents" sort of way.
@@ -39,7 +40,36 @@ document.addEventListener("scroll", () => {
 /** TODO: Add a comment form **/
 
 commentFormSubmit.addEventListener("click", (event) => {
+    // Validation and Appending of comments to the comment section
+
+    /* Validation */
     event.preventDefault();
+    let usernameIsValid = false;
+    let emailIsValid = false;
+    let commentIsValid = false;
+    /* Username Validation (left blank) */
+    if (commentFormUsername.value === "") {
+        commentFormUsername.previousElementSibling.classList.add("warning")
+        commentFormUsername.classList.add("warning");
+        if (commentFormUsername.nextElementSibling.nodeName === "SPAN") {
+            commentFormUsername.nextElementSibling.textContent =
+                " This field is required";
+        } else {
+            commentFormUsername.insertAdjacentHTML(
+                "afterend",
+                "<span class=\"warning\">This field is required</span>"
+            );
+        }
+    } else {
+        usernameIsValid = true;
+        if (commentFormUsername.nextElementSibling.nodeName === "SPAN") {
+            commentFormUsername.previousElementSibling.classList.remove("warning");
+            commentFormUsername.classList.remove("warning");
+            commentFormUsername.nextElementSibling.remove();
+        }
+    }
+
+    /* Email Validation (left blank OR invalid) */
     if (commentFormEmail.value === "") {
         commentFormEmail.previousElementSibling.classList.add("warning");
         commentFormEmail.classList.add("warning");
@@ -49,7 +79,7 @@ commentFormSubmit.addEventListener("click", (event) => {
         } else {
             commentFormEmail.insertAdjacentHTML(
                 "afterend",
-                "<span class=\"warning\"> This field is required</span>"
+                "<span class=\"warning\">This field is required</span>"
             );
         }
     } else if (
@@ -64,10 +94,20 @@ commentFormSubmit.addEventListener("click", (event) => {
         } else {
             commentFormEmail.insertAdjacentHTML(
                 "afterend",
-                "<span class=\"warning\"> Email is invalid</span>"
+                "<span class=\"warning\">Email is invalid</span>"
             );
         }
     }
+    else {
+        emailIsValid = true;
+        if (commentFormEmail.nextElementSibling.nodeName === "SPAN") {
+            commentFormEmail.previousElementSibling.classList.remove("warning");
+            commentFormEmail.classList.remove("warning");
+            commentFormEmail.nextElementSibling.remove();
+        }
+    }
+
+    /* Comment Validation (left blank) */
     if (commentFormComment.value === "") {
         commentFormComment.classList.add("warning");
         if (commentFormComment.nextElementSibling.nodeName === "SPAN") {
@@ -76,7 +116,39 @@ commentFormSubmit.addEventListener("click", (event) => {
         } else {
             commentFormComment.insertAdjacentHTML(
                 "afterend",
-                "<span class=\"warning\"> This field is required</span>"
+                "<span class=\"warning\">This field is required</span>"
             );
         }
-}});
+    } else {
+        commentIsValid = true;
+        if (commentFormComment.nextElementSibling.nodeName === "SPAN") {
+            commentFormComment.classList.remove("warning");
+            commentFormComment.nextElementSibling.remove();
+        }
+    }
+
+    /* Appending Comment */
+    if (usernameIsValid && emailIsValid && commentIsValid) {
+        const newComment = document.createElement("div")
+        newComment.classList.add("comment-block");
+        newComment.innerHTML = `<div class="personal-info">
+            <img src="avatar-3814049_1920.png" alt="Picture of ${commentFormUsername}" width="50" />
+                            <span>${commentFormUsername.value} (${commentFormEmail.value})</span>
+                        </div>
+                        <hr />
+                        <div class="comment">
+                            <p>
+                                ${commentFormComment.value}
+                            </p>
+                        </div>
+                    </div>
+                </div>`
+        comments.appendChild(newComment);
+        for (let elem of [commentFormUsername, commentFormEmail, commentFormComment]) {
+            elem.classList.remove("warning");
+            elem.value = ""
+        }
+        document.querySelectorAll("label").classList.remove("warning")
+        document.querySelectorAll(".warning").remove();
+    }
+});

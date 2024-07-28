@@ -1,13 +1,28 @@
 # Dynamic Web Page Project
 
-This project requires you to build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
 
 ---
 
-## Instructions
+## Introduction
 
-The starter project has some HTML and CSS styling to display a static version of the Dynamic Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This project is a result of hard work and serious dedication to excellence, and hours put into this show of effort; a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page, smooth scrolling, active state on focusing on each section, and comment section.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Project Description/Scope
 
-For more detailed requirements, see the project instructions in the Udacity Classroom.
+This project focused mainly on JavaScript and DOM manipulation skills to make a Dynamic Web Page. I was tasked to do the following:—
+- dynamically add each section of the page to a navbar in the shape of links,
+- add smooth scrolling to each section on clicking mentioned sections on the navbar,
+- add active state on focusing on mentioned sections, and
+- add a comment form with proper validation and a comment section to which the comment is appended to.
+
+## Required Skills
+
+The skills that were required to complete this project were the following:—
+- HTML,
+- CSS,
+- JS,
+- JS DOM manipulation, and
+- Frontend Web Design.
+
+
+Made by Yussuf Mohammad Abbas.

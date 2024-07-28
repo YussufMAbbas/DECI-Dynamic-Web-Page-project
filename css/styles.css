@@ -259,44 +259,45 @@ section.active .landing__container::after {
     }
 }
 
-/* TODO: Add styles for Comments section and form */
 
 label {
     display: block;
-    margin-bottom: 3px;
     font-size: 14px;
+    margin-bottom: 3px;
+    margin-top: 10px;
 }
 
 input:not(:last-of-type) {
-    height: 40px;
-    width: min(400px, 100%);
-    border-radius: 10px;
     border: 1px black solid;
-    margin-bottom: 10px;
+    border-radius: 10px;
     font-size: 16px;
+    height: 40px;
+    margin-right: 10px;
+    width: min(400px, 100%);
 }
 
 textarea {
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 80%;
-    height: 100px;
-    resize: none;
     border: 1px black solid;
     border-radius: 10px;
-    margin-top: 10px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100px;
+    resize: none;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 100%;
 }
 
 .comment-block {
     background-color: #fff;
-    padding: 10px;
     border: 1px black solid;
     border-radius: 10px;
+    padding: 10px;
 }
 
 .personal-info {
-    display: flex;
     align-items: center;
+    display: flex;
     gap: 20px;
 }
 
@@ -309,21 +310,25 @@ textarea {
 }
 
 #submit {
-    display: block;
-    margin-top: 10px;
     border: 1px black solid;
     border-radius: 10px;
-    width: 150px;
+    display: block;
     height: 36px;
+    margin-top: 10px;
+    width: 150px;
 }
 
 span.warning,
 label.warning {
-    font-size: 14px;
     color: #ee0000;
+    font-size: 14px;
 }
 
 input.warning,
 textarea.warning {
     border-color: #ee0000;
+}
+
+span.warning {
+    display: inline-block;
 }
