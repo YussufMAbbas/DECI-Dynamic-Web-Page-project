@@ -107,6 +107,7 @@ section {
 /* Landing Container Styles */
 .landing__container {
     padding: 1em;
+    padding-top: 5em;
     text-align: left;
 }
 
